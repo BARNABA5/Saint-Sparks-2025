@@ -19,11 +19,15 @@ function newQuote() {
   saintEl.textContent = `– ${random.saint}`;
 }
 
+// When the page loads or refreshes, pick a random quote
+window.addEventListener("load", newQuote);
+
+// Also allow user to get new quotes manually
 newQuoteBtn.addEventListener("click", newQuote);
+
+// Copy to clipboard button
 copyBtn.addEventListener("click", () => {
   navigator.clipboard.writeText(`${quoteEl.textContent} ${saintEl.textContent}`);
   copyBtn.textContent = "✅ Copied!";
-  setTimeout(() => copyBtn.textContent = "📋 Copy Quote", 2000);
+  setTimeout(() => (copyBtn.textContent = "📋 Copy Quote"), 2000);
 });
-
-newQuote();
