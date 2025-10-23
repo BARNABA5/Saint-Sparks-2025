@@ -300,3 +300,66 @@ audio {
   outline: none;
   border-radius: 30px;
 }
+/* Carlo Acutis Section */
+.carlo-section {
+  background: linear-gradient(to right, #faf5ff, #e0e7ff);
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+}
+
+.carlo-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 30px;
+  max-width: 1000px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(100, 100, 255, 0.3);
+  padding: 30px;
+}
+
+.carlo-img {
+  width: 280px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.carlo-info h2 {
+  color: #3b82f6;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.carlo-quote {
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #6b21a8;
+  margin-bottom: 15px;
+}
+
+.carlo-bio {
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.carlo-btn {
+  background-color: #3b82f6;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.carlo-btn:hover {
+  background-color: #2563eb;
+  transform: scale(1.05);
+}
+
+
