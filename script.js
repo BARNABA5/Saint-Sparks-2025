@@ -74,4 +74,50 @@ copyBtn.addEventListener("click", () => {
   copyBtn.textContent = "✅ Copied!";
   setTimeout(() => (copyBtn.textContent = "📋 Copy Quote"), 2000);
 });
+// Saintly Sparks - Daily Streak + Level Tracker
+const streakMessage = document.getElementById("streak-message");
+const levelName = document.getElementById("level-name");
+const progressBar = document.getElementById("level-progress");
+
+function updateStreak() {
+  const today = new Date().toDateString();
+  const lastVisit = localStorage.getItem("lastVisit");
+  let streak = parseInt(localStorage.getItem("streak")) || 0;
+
+  if (lastVisit === today) {
+    streakMessage.textContent = `You've already viewed your Saintly Spark today! 🌞`;
+  } else {
+    if (lastVisit) {
+      const diffDays = Math.floor(
+        (new Date(today) - new Date(lastVisit)) / (1000 * 60 * 60 * 24)
+      );
+      if (diffDays === 1) {
+        streak++;
+      } else if (diffDays > 1) {
+        streak = 1;
+      }
+    } else {
+      streak = 1;
+    }
+
+    localStorage.setItem("streak", streak);
+    localStorage.setItem("lastVisit", today);
+    streakMessage.textContent = `You've viewed your Saintly Spark for ${streak} day${streak > 1 ? "s" : ""} in a row! 🔥 Keep shining!`;
+  }
+
+  // Define levels
+  let level = "🌱 Beginner";
+  let progress = (streak % 7) * (100 / 7); // Each week fills bar
+  if (streak >= 7 && streak < 14) level = "🌼 Faith Builder";
+  if (streak >= 14 && streak < 21) level = "🔥 Faith Warrior";
+  if (streak >= 21 && streak < 30) level = "🌟 Spirit Shiner";
+  if (streak >= 30) level = "👑 Eternal Spark";
+
+  levelName.textContent = `Level: ${level}`;
+  progressBar.style.width = `${progress}%`;
+}
+
+updateStreak();
+
+
 
